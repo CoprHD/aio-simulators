@@ -9,11 +9,11 @@
 # it is provided by or on behalf of EMC.
 #
 
-DEVKIT_BUILD=23
-DEVKIT_IMAGE=coprhddevkit:3.0.0.0.$(DEVKIT_BUILD)
-DEVKIT_LOCAL=CoprHDDevKit.x86_64-3.0.0.0.$(DEVKIT_BUILD).tbz
-DEVKIT_ADDRS=https://build.coprhd.org/jenkins/userContent/DevKits/3.0.0.0.$(DEVKIT_BUILD)/$(DEVKIT_LOCAL)
-DOCKER_RUN=docker run --rm --privileged --net=host -w /workspace -v "$(CURDIR)/..:/workspace" -v "/disks:/disks" $(DEVKIT_IMAGE)
+DEVKIT_BUILD=27
+DEVKIT_IMAGE=coprhddevkit:3.5.0.0.$(DEVKIT_BUILD)
+DEVKIT_LOCAL=CoprHDDevKit.x86_64-3.5.0.0.$(DEVKIT_BUILD).tbz
+DEVKIT_ADDRS=https://build.coprhd.org/jenkins/userContent/DevKits/3.5.0.0.$(DEVKIT_BUILD)/$(DEVKIT_LOCAL)
+DOCKER_RUN=docker run --rm --privileged --net=host -w /workspace -v "$(CURDIR):/workspace" -v "/disks:/disks" $(DEVKIT_IMAGE)
 PRODUCT_FOLDER=AIO-Simulators
 .DEFAULT: appliance
 .PHONY: appliance
@@ -22,10 +22,10 @@ appliance:
 	docker history "$(DEVKIT_IMAGE)" &> /dev/null || wget --continue "$(DEVKIT_ADDRS)"
 	[ ! -f "$(DEVKIT_LOCAL)" ] || cat "$(DEVKIT_LOCAL)" | docker import - $(DEVKIT_IMAGE)
 	[ ! -f "$(DEVKIT_LOCAL)" ] || rm "$(DEVKIT_LOCAL)"
-	$(DOCKER_RUN) make -f $(PRODUCT_FOLDER)/Makefile $@ $(MAKEFLAGS)
+	$(DOCKER_RUN) make -f Makefile $@ $(MAKEFLAGS)
 
 %::
 	docker history "$(DEVKIT_IMAGE)" &> /dev/null || wget --continue "$(DEVKIT_ADDRS)"
 	[ ! -f "$(DEVKIT_LOCAL)" ] || cat "$(DEVKIT_LOCAL)" | docker import - $(DEVKIT_IMAGE)
 	[ ! -f "$(DEVKIT_LOCAL)" ] || rm "$(DEVKIT_LOCAL)"
-	$(DOCKER_RUN) make -f $(PRODUCT_FOLDER)/Makefile $@ $(MAKEFLAGS)
+	$(DOCKER_RUN) make -f Makefile $@ $(MAKEFLAGS)
