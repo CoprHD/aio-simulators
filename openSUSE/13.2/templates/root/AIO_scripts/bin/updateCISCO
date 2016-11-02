@@ -7,7 +7,10 @@ wget $LATEST_URL
 unzip cisco-sim.zip
 rm -r cisco-sim/db
 chmod -R 777 cisco-sim
+rm -rf /data/simulators/cisco-sim/bin
+rm -rf /data/simulators/cisco-sim/python
 cp -r cisco-sim/* /data/simulators/cisco-sim/
+cp /cisco-sim/bashrc /root/.bashrc
 rm -r cisco-sim
 rm  cisco-sim.zip
 systemctl start CiscoMgmt
