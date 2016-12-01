@@ -151,7 +151,7 @@ rm hds-sim.zip
 
 echo "Installing LDAP"
 
-LATEST_URL=`getLatestURL ldap-sim` 
+LATEST_URL=`getLatestURL ldap-sim -bin` 
 echo "Downloading $LATEST_URL"
 wget $LATEST_URL -O ldap-sim.zip || exit 1
 
