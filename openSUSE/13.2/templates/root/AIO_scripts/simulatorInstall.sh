@@ -15,7 +15,7 @@ UNIT_FILES_LOCATION=$AIO_SCRIPTS_LOCATION/unit_files/*
 UPDATE_SCRIPTS_LOCATION=$AIO_SCRIPTS_LOCATION/bin/*
 DB_FILE_LOCATION=$AIO_SCRIPTS_LOCATION/dbFiles/*
 
-SIMULATOR_BUILD_LOCATION="http://build.coprhd.org/jenkins/userContent/simulators/"
+SIMULATOR_BUILD_LOCATION="http://lglw8129.lss.emc.com/simulators/"
 
 getLatestURL(){
 	VERSION=0
@@ -30,7 +30,7 @@ getLatestURL(){
 
 	rm $1folder
 
-	echo "$SIMULATOR_BUILD_LOCATION$1/$VERSION/$1ulators-$VERSION$2.zip"
+	echo "$SIMULATOR_BUILD_LOCATION$1/$VERSION/$1-$VERSION$2.zip"
 }
 
 
@@ -76,7 +76,7 @@ echo "Installing Simulators binaries"
 echo "Installing CISCO"
 
 
-LATEST_URL=`getLatestURL cisco-sim`
+LATEST_URL=`getLatestURL cisco-simulators`
 echo "Downloading $LATEST_URL"
 wget $LATEST_URL -O cisco-sim.zip || exit 1
 
@@ -95,7 +95,7 @@ rm  cisco-sim*.zip
 					#############################
 echo "Installing ECOM"
 
-LATEST_URL=`getLatestURL smis-sim`
+LATEST_URL=`getLatestURL smis-simulators`
 echo "Downloading $LATEST_URL"
 wget $LATEST_URL -O smis-simulator.zip || exit 1
 
@@ -135,7 +135,7 @@ chmod 777 /data/simulators/ecom462/bin/ECOM462
 					#############################
 echo "Installing HDS"
 
-LATEST_URL=`getLatestURL hds-sim` 
+LATEST_URL=`getLatestURL hds-simulators` 
 echo "Downloading $LATEST_URL"
 wget $LATEST_URL -O hds-sim.zip || exit 1
 
@@ -151,7 +151,7 @@ rm hds-sim.zip
 
 echo "Installing LDAP"
 
-LATEST_URL=`getLatestURL ldap-sim -bin` 
+LATEST_URL=`getLatestURL ldap-simulators -bin` 
 echo "Downloading $LATEST_URL"
 wget $LATEST_URL -O ldap-sim.zip || exit 1
 
@@ -186,7 +186,7 @@ chmod 777 /data/simulators/ldap-sim/bin/run.sh
 					#############################
 echo "Installing RP"
 
-LATEST_URL=`getLatestURL rp-sim`
+LATEST_URL=`getLatestURL rp-simulators`
 echo "Downloading $LATEST_URL"
 wget $LATEST_URL || exit 1
 
@@ -203,7 +203,7 @@ rm -f rp-simulators-*.zip
 					#############################
 echo "Installing VPLEX"
 
-LATEST_URL=`getLatestURL vplex-sim` 
+LATEST_URL=`getLatestURL vplex-simulators` 
 VERSION=${LATEST_URL##*simulators-}
 VERSION=${VERSION%%-*}
 echo "Downloading $LATEST_URL"
@@ -224,7 +224,7 @@ rm -f vplex-simulators-*.zip
 					#############################
 echo "Installing WINDOWS"
 
-LATEST_URL=`getLatestURL win-sim` 
+LATEST_URL=`getLatestURL win-simulators` 
 echo "Downloading $LATEST_URL"
 wget $LATEST_URL -O win-sim.zip || exit 1
 
@@ -239,7 +239,7 @@ rm  win-sim.zip
 					#############################
 echo "Installing XIO"
 
-LATEST_URL=`getLatestURL xio-sim`
+LATEST_URL=`getLatestURL xio-simulators`
 VERSION=${LATEST_URL##*simulators-}
 VERSION=${VERSION%%-*}
 echo "Downloading $LATEST_URL"
@@ -259,7 +259,7 @@ rm -f xio-simulators-*.zip
 					#############################
 echo "Installing VMWARE"
 
-LATEST_URL=`getLatestURL vmware-sim`
+LATEST_URL=`getLatestURL vmware-simulators`
 echo "Downloading $LATEST_URL"
 wget $LATEST_URL || exit 1
 
