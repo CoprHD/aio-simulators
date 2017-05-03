@@ -20,6 +20,10 @@ DELAY=60
 start() {
         echo -n $"Starting CISCO:..hold on 10sec .."	
 
+	# reboot may wipe this out
+	cp ${CISCO_HOME}/bashrc /root/.bashrc
+    ln -s /data/simulators/cisco-sim/ /cisco-sim
+
 	source ${CISCO_HOME}/bashrc 2>&1 
         RETVAL=$?
 
