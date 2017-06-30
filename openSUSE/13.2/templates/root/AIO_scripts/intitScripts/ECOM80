@@ -17,11 +17,13 @@ RETVAL=0
 ECOM_HOME=/data/simulators/ecom80
 DELAY=60
 ECOM80disable="/var/log/ECOM80enable"
+RP_HOME=/data/simulators/rp-sim
 
 
 start() {
   #if [ ! -f $ECOM80disable ];then
         echo -n $"Starting ECOM80:..hold on 60sec .."
+	pkill -9 -f rp-simulators- >> /var/log/RP.log 2>&1
         ${ECOM_HOME}/bin/ECOM80  >/var/log/ECOM80.log 2>&1 &
         RETVAL=$?
 
@@ -32,6 +34,9 @@ start() {
            if [ "${START}" != "" ] ; then
              echo "${START}" >> /var/log/ECOM80.log 2>&1            
              echo "..OK"
+              sleep 60
+	      cd ${RP_HOME}
+              java -jar rp-simulators-*.jar >/var/log/RP.log 2>&1 &
              return
            fi
           fi
