@@ -13,6 +13,9 @@ JOB := 999
 VENDOR := EMC
 ISO_FILE := openSUSE-13.2-DVD-x86_64.iso
 ISO_URL := http://download.opensuse.org/distribution/13.2/iso/$(ISO_FILE)
+ISO_FILE := openSUSE-Leap-42.3-DVD-x86_64.iso
+# http://download.opensuse.org/distribution/openSUSE-stable/iso/openSUSE-Leap-42.3-DVD-x86_64.iso
+ISO_URL := http://download.opensuse.org/distribution/openSUSE-stable/iso/$(ISO_FILE)
 
 ##################################################
 #  Target files/folders
@@ -52,14 +55,14 @@ downloadRPM:
 	rm -fr $(WORKSPACE)/zypper/reposd
 	mkdir -p $(WORKSPACE)/zypper/{reposd,cache,solv,pkg}
 	@# openSUSE's OSS packages
-	zypper $(ZYPPER_PARAMS) addrepo --name repo-oss --no-gpgcheck --no-check http://download.opensuse.org/distribution/13.2/repo/oss repo-oss.repo
+	zypper $(ZYPPER_PARAMS) addrepo --name repo-oss --no-gpgcheck --no-check http://download.opensuse.org/distribution/openSUSE-stable/repo/oss repo-oss.repo
 	zypper $(ZYPPER_PARAMS) refresh
 	zypper $(ZYPPER_PARAMS) --non-interactive download python-py python-requests python-setools python-iniparse python-gpgme
 	zypper $(ZYPPER_PARAMS) --non-interactive download libserf-devel fribidi fbiterm openssh-fips perl-Tk setools-libs sshpass sysstat ca-certificates-cacert yum keepalived
 	@# openSUSE's non-OSS packages
-	zypper $(ZYPPER_PARAMS) addrepo --name devel-languages-python --no-gpgcheck --no-check http://download.opensuse.org/repositories/devel:/languages:/python:/Factory/openSUSE_13.2 devel-languages-python.repo
-	zypper $(ZYPPER_PARAMS) addrepo --name server-monitoring --no-gpgcheck --no-check http://download.opensuse.org/repositories/server:/monitoring/openSUSE_13.2 server-monitoring.repo
-	zypper $(ZYPPER_PARAMS) addrepo --name home-seife-testing --no-gpgcheck --no-check http://download.opensuse.org/repositories/home:/seife:/testing/openSUSE_13.2 home-seife-testing.repo
+	zypper $(ZYPPER_PARAMS) addrepo --name devel-languages-python --no-gpgcheck --no-check http://download.opensuse.org/repositories/devel:/languages:/python:/Factory/openSUSE_Leap_42.3 devel-languages-python.repo
+	zypper $(ZYPPER_PARAMS) addrepo --name server-monitoring --no-gpgcheck --no-check http://download.opensuse.org/repositories/server:/monitoring/openSUSE_Leap_42.3 server-monitoring.repo
+	zypper $(ZYPPER_PARAMS) addrepo --name home-seife-testing --no-gpgcheck --no-check http://download.opensuse.org/repositories/home:/seife:/testing/openSUSE_Leap_42.3 home-seife-testing.repo
 	zypper $(ZYPPER_PARAMS) refresh
 	$(call targetLog,-)
 

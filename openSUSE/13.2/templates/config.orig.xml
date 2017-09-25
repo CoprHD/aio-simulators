@@ -51,7 +51,6 @@
         <package name="parted"/>
         <package name="openssh"/>
         <package name="sysconfig"/>
-        <package name="dhcpcd"/>
         <package name="net-tools"/>
         <package name="sysconfig-netconfig"/>
         <package name="netcfg"/>
@@ -75,14 +74,11 @@
         <package name="libXmu6"/>
         <package name="libaudiofile1"/>
         <package name="libesd0"/>
-        <package name="libmng2"/>
         <package name="libqt4"/>
         <package name="libqt4-sql"/>
         <package name="libqt4-x11"/>
         <package name="libvpx1"/>
         <package name="systemd-logger"/>
-        <package name="virtualbox"/>
-        <package name="virtualbox-host-kmp-default"/>
         <package name="xbitmaps"/>
         <!-- storageOS DevKit RPM installs -->
         <package name="telnet"/>
@@ -95,8 +91,6 @@
         <package name="gcc-c++"/>
         <package name="gpgme"/>
         <package name="inst-source-utils"/>
-        <package name="java-1_7_0-openjdk"/>
-        <package name="java-1_7_0-openjdk-devel"/>
         <package name="kernel-default-devel"/>
         <package name="kernel-source"/>
         <package name="kiwi-desc-isoboot"/>
