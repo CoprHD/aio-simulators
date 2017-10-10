@@ -130,7 +130,7 @@ $(OVF): | $(VMDK)
 	VBoxManage export "$(NAME)-$(VERSION).$(JOB)" --vsys 0 --product $(NAME) --version $(VERSION).$(JOB) --vendor $(VENDOR) --output $(WORKSPACE)/build/$(NAME)-$(VERSION).$(JOB)/$(NAME).x86_64-$(VERSION).$(JOB).ovf
 	VBoxManage unregistervm "$(NAME)-$(VERSION).$(JOB)" --delete
 	mv -f $(OUTPUT_DIR)/$(NAME).x86_64-$(VERSION).$(JOB).vmdk.bak $(OUTPUT_DIR)/$(NAME).x86_64-$(VERSION).$(JOB).vmdk
-	bash $(WORKSPACE)/configure.sh updateOVF $(OVF) $(BUILD_DIR)/$(NAME).x86_64-$(VERSION).$(JOB)-disk1.vmdk 
+	bash $(WORKSPACE)/configure.sh updateOVF $(OVF) $(BUILD_DIR)/$(NAME).x86_64-$(VERSION).$(JOB)-disk001.vmdk 
 	$(call targetLog,-)
 
 
