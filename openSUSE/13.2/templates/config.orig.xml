@@ -51,6 +51,7 @@
         <package name="parted"/>
         <package name="openssh"/>
         <package name="sysconfig"/>
+	<package name="dhcp-server"/>
         <package name="net-tools"/>
         <package name="sysconfig-netconfig"/>
         <package name="netcfg"/>
@@ -60,6 +61,7 @@
         <package name="sudo"/>
         <package name="unzip"/>
         <package name="curl"/>
+	<package name="bind"/>
         <package name="bind-utils"/>
         <!-- DEV Environment -->
         <!-- archive name="eclipse-java-luna-SR2-linux-gtk-x86_64.tar.gz"/ -->
@@ -91,6 +93,8 @@
         <package name="gcc-c++"/>
         <package name="gpgme"/>
         <package name="inst-source-utils"/>
+	<package name="java-1_8_0-openjdk"/>
+        <package name="java-1_8_0-openjdk-devel"/>
         <package name="kernel-default-devel"/>
         <package name="kernel-source"/>
         <package name="kiwi-desc-isoboot"/>
