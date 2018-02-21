@@ -77,7 +77,7 @@ start(){
 
 
         #VMWARE
-	sed -i "s/\(^\|#\)*VMW_SIMULATOR_IP=.*/VMW_SIMULATOR_IP=$ip" $VMWARE_CONFIG		
+        sed -i "s/\(^\|#\)*VMW_SIMULATOR_IP=.*/VMW_SIMULATOR_IP=$ip" $VMWARE_CONFIG		
         sed -i "s/\(^\|#\)*SMIS_PROVIDER=.*/SMIS_PROVIDER=$ip" $VMWARE_CONFIG
          
     	#VPLEX
