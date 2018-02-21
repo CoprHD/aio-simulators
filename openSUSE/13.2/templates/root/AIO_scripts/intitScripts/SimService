@@ -18,6 +18,7 @@ SIMULATORS=/data/simulators
 CISCO_BASHRC=$SIMULATORS/cisco-sim/bashrc
 RP_CONFIG=$SIMULATORS/rp-sim/rp_config.properties
 VPLEX_CONFIG=$SIMULATORS/vplex-sim/vplex_config.properties
+VMWARE_CONFIG=$SIMULATORS/vmware/vmw_config.properties
 XIO_CONFIG=$SIMULATORS/xio/xio_config.properties
 VPLEX2_CONFIG=$SIMULATORS/vplex-sim_2/vplex_config.properties
 XIO2_CONFIG=$SIMULATORS/xio_2/xio_config.properties
@@ -75,7 +76,10 @@ start(){
         sed -i "s/\(^\|#\)*VERSION.*=.*/VERSION=80/" $ECOM80_CONFIG
 
 
-    		
+        #VMWARE
+	sed -i "s/\(^\|#\)*VMW_SIMULATOR_IP=.*/VMW_SIMULATOR_IP=$ip" $VMWARE_CONFIG		
+        sed -i "s/\(^\|#\)*SMIS_PROVIDER=.*/SMIS_PROVIDER=$ip" $VMWARE_CONFIG
+         
     	#VPLEX
     	#sed -i "s/\(^\|#\)*VplexSimulatorIP=.*/VplexSimulatorIP=$ip/" $VPLEX_CONFIG
     	sed -i "s/\(^\|#\)*RP_SERVERs.*=.*:/RP_SERVERs=$ip:/" $VPLEX_CONFIG

@@ -108,6 +108,7 @@
         <package name="python-libxml2"/>
         <package name="python-py"/>
         <package name="python-requests"/>
+        <package name="python-pexpect"/>
         <package name="setools-libs"/>
         <package name="python-setools"/>
         <package name="qemu"/>

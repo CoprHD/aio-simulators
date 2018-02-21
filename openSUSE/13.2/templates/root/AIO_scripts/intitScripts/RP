@@ -18,6 +18,7 @@ RP_HOME=/data/simulators/rp-sim
 DELAY=60
 
 start() {
+        sleep 60
         echo -n $"Starting RP:..hold on 10sec .."
 		cd ${RP_HOME}
         java -jar rp-simulators-*.jar >/var/log/RP.log 2>&1 &
